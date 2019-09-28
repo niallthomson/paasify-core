@@ -1,3 +1,11 @@
+module "acme" {
+  source = "../../acme/aws"
+
+  dns_zone_id        = var.dns_zone_id
+  opsmanager_domain  = var.om_host
+  additional_domains = var.additional_cert_domains
+}
+
 module "director_config" {
   source = "../../build-director-config/aws"
 

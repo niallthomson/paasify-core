@@ -49,6 +49,11 @@ variable "management_subnet_azs" {
   type = list(string)
 } 
 
+variable "additional_cert_domains" {
+  type    = list(string)
+  default = []
+}
+
 variable "blocker" {
   description = "Used to link to a blocker resource"
   default = ""
