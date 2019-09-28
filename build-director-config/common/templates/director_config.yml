@@ -1,0 +1,11 @@
+network-assignment:
+  network:
+    name: management
+  other_availability_zones: []
+  singleton_availability_zone:
+    name: ${az}
+properties-configuration:
+  director_configuration:
+    ntp_servers_string: ${ntp}
+    resurrector_enabled: true
+    
