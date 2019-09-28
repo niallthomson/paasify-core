@@ -1,4 +1,8 @@
 resource "null_resource" "apply_changes" {
+  triggers = {
+    blocker = var.blocker
+  }
+
   provisioner "remote-exec" {
     inline = ["wrap apply_changes ${var.blocker}"]
   }
