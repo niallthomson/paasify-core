@@ -21,3 +21,7 @@ output "cert_full_chain" {
 output "cert_key" {
   value = module.acme.cert_key
 }
+
+output "blocker" {
+  value = module.configure_director.blocker
+}
