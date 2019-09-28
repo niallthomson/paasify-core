@@ -1,8 +1,12 @@
 locals {
-    opman_product = var.om_product == "" ? var.slug : var.om_product
+  opman_product = var.om_product == "" ? var.slug : var.om_product
 }
 
 resource "null_resource" "stage_tile" {
+  provisioner "remote-exec" {
+    inline = ["echo ${var.blocker}"]
+  }
+
   provisioner "file" {
     content     = var.config
     destination = "~/config/${local.opman_product}-config.yml"
