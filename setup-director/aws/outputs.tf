@@ -9,3 +9,7 @@ output "provisioner_ssh_username" {
 output "provisioner_ssh_private_key" {
   value = module.provisioner.ssh_private_key
 }
+
+output "az_configuration" {
+  value = module.director_config.az_configuration
+}

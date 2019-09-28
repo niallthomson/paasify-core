@@ -9,3 +9,7 @@ output "ops_file" {
 output "bosh_director_ip" {
   value = cidrhost(var.management_subnet_cidrs[0], 10)
 }
+
+output "az_configuration" {
+  value = "[${join(", ", formatlist("{name: %s}", var.azs))}]"
+}
