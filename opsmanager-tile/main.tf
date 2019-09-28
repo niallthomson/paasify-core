@@ -3,6 +3,11 @@ locals {
 }
 
 resource "null_resource" "stage_tile" {
+  triggers = {
+    config   = var.config
+    ops_file = var.ops_file
+  }
+
   provisioner "remote-exec" {
     inline = ["echo ${var.blocker}"]
   }
