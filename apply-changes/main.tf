@@ -1,6 +1,6 @@
 resource "null_resource" "apply_changes" {
   provisioner "remote-exec" {
-    inline = ["apply_changes ${var.blocker}"]
+    inline = ["wrap apply_changes ${var.blocker}"]
   }
 
   connection {
