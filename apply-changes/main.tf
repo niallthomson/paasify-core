@@ -1,9 +1,7 @@
-resource "null_resource" "apply_common" {
+resource "null_resource" "apply_changes" {
   provisioner "remote-exec" {
     inline = ["apply_changes ${var.blocker}"]
   }
-
-  count = "${var.run ? 1 : 0}"
 
   connection {
     host        = var.provisioner_host

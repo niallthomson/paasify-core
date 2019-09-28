@@ -1,7 +1,3 @@
-variable "run" {
-  default = true
-}
-
 variable "provisioner_host" {
   description = "The host of the paasify provisioner used to trigger the install the tile"
 }
