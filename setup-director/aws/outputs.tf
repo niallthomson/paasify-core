@@ -1,11 +1,11 @@
-output "dns" {
+output "provisioner_host" {
   value = module.provisioner.dns
 }
 
-output "ssh_username" {
+output "provisioner_ssh_username" {
   value = module.provisioner.ssh_username
 }
 
-output "ssh_private_key" {
+output "provisioner_ssh_private_key" {
   value = module.provisioner.ssh_private_key
 }
