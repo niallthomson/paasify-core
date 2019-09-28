@@ -41,3 +41,7 @@ variable "provisioner_username" {
 variable "provisioner_private_key" {
   description = "The SSH private key of the paasify provisioner"
 }
+
+variable "blocker" {
+  default = ""
+}
