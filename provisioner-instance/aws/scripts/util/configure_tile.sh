@@ -11,8 +11,8 @@ fi
 
 echo "Configuring tile $product_name"
 
-config_path="~/config/$product_name-config.yml"
-ops_path="~/config/$product_name-config-ops.yml"
+config_path="/home/ubuntu/config/$product_name-config.yml"
+ops_path="/home/ubuntu/config/$product_name-config-ops.yml"
 
 if [ -f "$ops_path" ]; then
   om configure-product -c "$config_path" -o "$ops_path"
