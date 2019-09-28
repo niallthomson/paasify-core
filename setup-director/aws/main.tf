@@ -47,7 +47,7 @@ module "configure_director" {
   source = "../../configure-director"
 
   config           = module.director_config.config
-  ops_file         = module.director_config.ops_file
+  ops_file         = "${module.director_config.ops_file}\n\n${var.director_ops_file}"
   bosh_director_ip = module.director_config.bosh_director_ip
 
   provisioner_host        = module.provisioner.dns

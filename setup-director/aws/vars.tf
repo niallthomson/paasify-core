@@ -49,6 +49,11 @@ variable "management_subnet_azs" {
   type = list(string)
 } 
 
+variable "director_ops_file" {
+  description = "Optional ops file yml for director tile"
+  default     = ""
+}
+
 variable "additional_cert_domains" {
   type    = list(string)
   default = []
