@@ -93,6 +93,11 @@ if [ ! -d ~/config ]; then
   mkdir -p ~/config
 fi
 
+# Setup scripts dir
+if [ ! -d ~/scripts ]; then
+  mkdir -p ~/scripts
+fi
+
 # Convenience scripts
 for file in /tmp/scripts-upload/*.sh; do
   chmod +x "$file"
