@@ -1,3 +1,15 @@
+output "opsman_host" {
+  value = module.provisoner.om_host
+}
+
+output "opsman_username" {
+  value = module.provisoner.om_username
+}
+
+output "opsman_password" {
+  value = module.provisoner.om_password
+}
+
 output "provisioner_host" {
   value = module.provisioner.dns
 }
