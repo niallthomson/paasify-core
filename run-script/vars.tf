@@ -1,5 +1,9 @@
+variable "name" {
+  description = "The name of the script to be executed on the provisioner with bash"
+}
+
 variable "script" {
-  description = "The script to be executed on the provisioner with bash"
+  description = "The script contents to be executed on the provisioner with bash"
 }
 
 variable "provisioner_host" {
