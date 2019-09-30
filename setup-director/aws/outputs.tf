@@ -34,6 +34,10 @@ output "cert_key" {
   value = module.acme.cert_key
 }
 
+output "cert_ca" {
+  value = module.acme.cert_ca
+}
+
 output "blocker" {
   value = module.configure_director.blocker
 }
