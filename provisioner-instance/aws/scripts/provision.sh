@@ -118,7 +118,7 @@ fi
 
 # Create script for loading secrets
 cat <<EOF > ~/.load_secrets
-json=\$(aws s3 cp s3://$secrets-bucket/secrets.json -)
+json=\$(aws s3 cp s3://$secrets_bucket/secrets.json -)
 
 for s in \$(echo \$json | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" ); do
   export \$s
