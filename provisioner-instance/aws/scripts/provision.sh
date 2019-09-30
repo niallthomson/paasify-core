@@ -15,7 +15,7 @@ om_password=$4
 sleep 40
 
 sudo apt -qq -y update
-sudo apt install -qq -y jq nano
+sudo apt install -qq -y jq nano awscli
 
 # Install pivnet CLI
 if [ ! -f /usr/bin/pivnet ]; then
