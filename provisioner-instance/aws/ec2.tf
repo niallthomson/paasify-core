@@ -39,6 +39,7 @@ resource "aws_instance" "provisioner" {
   key_name                    = aws_key_pair.provisioner.key_name
   subnet_id                   = local.subnet_id
   vpc_security_group_ids      = [aws_security_group.provisioner.id]
+  iam_instance_profile        = aws_iam_instance_profile.provisioner_profile.name
 
   root_block_device {
     volume_size           = local.disk_size
