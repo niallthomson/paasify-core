@@ -4,6 +4,7 @@ locals {
 
 resource "null_resource" "stage_tile" {
   triggers = {
+    version  = var.version
     config   = var.config
     ops_file = var.ops_file
   }
