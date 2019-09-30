@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source ~/.bash_profile
+source ~/.load_secrets
 
 echo "Wrapping $1"
 

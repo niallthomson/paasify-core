@@ -10,6 +10,7 @@ pivnet_api_token=$1
 om_domain=$2
 om_username=$3
 om_password=$4
+secrets_bucket=$5
 
 # apt install fails if I don't sleep?!
 sleep 40
@@ -114,6 +115,15 @@ if [ -z "$om_domain" ]; then
   echo "OM domain not set, skipping auth configuration"
   exit
 fi
+
+# Create script for loading secrets
+cat <<EOF > ~/.load_secrets
+json=$(aws s3 cp s3://$secrets-bucket/secrets.json -)
+
+for s in $(echo $json | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" ); do
+  export $s
+done
+EOF
 
 # Configure authentication in OpsMan
 echo 'Configuring OpsMan authentication...'

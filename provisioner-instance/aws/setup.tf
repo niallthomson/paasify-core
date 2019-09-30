@@ -19,7 +19,7 @@ resource "null_resource" "setup" {
   }
 
   provisioner "remote-exec" {
-    inline = ["chmod +x /tmp/provision.sh && /tmp/provision.sh ${var.pivnet_token} ${var.om_host} ${var.om_username} ${local.om_password}"]
+    inline = ["chmod +x /tmp/provision.sh && /tmp/provision.sh ${var.pivnet_token} ${var.om_host} ${var.om_username} ${local.om_password} ${aws_s3_bucket.secrets_bucket.bucket}"]
   }
 
   connection {
