@@ -60,8 +60,8 @@ variable "additional_cert_domains" {
 }
 
 variable "secrets" {
-  type = map(string)
-  default {}
+  type    = map(string)
+  default = {}
 }
 
 variable "blocker" {

@@ -45,8 +45,8 @@ variable "om_password" {
 }
 
 variable "secrets" {
-  type = map(string)
-  default {}
+  type    = map(string)
+  default = {}
 }
 
 variable "blocker" {
