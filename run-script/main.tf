@@ -13,7 +13,7 @@ resource "null_resource" "script" {
   }
 
   provisioner "remote-exec" {
-    inline = ["bash ~/scripts/${var.name}.sh"]
+    inline = ["wrap bash ~/scripts/${var.name}.sh"]
   }
 
   connection {
