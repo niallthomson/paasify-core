@@ -59,6 +59,11 @@ variable "additional_cert_domains" {
   default = []
 }
 
+variable "secrets" {
+  type = map(string)
+  default {}
+}
+
 variable "blocker" {
   description = "Used to link to a blocker resource"
   default = ""

@@ -36,6 +36,8 @@ module "provisioner" {
   pivnet_token = var.pivnet_token
   om_host      = var.om_host
 
+  secrets      = var.secrets
+
   blocker      = var.blocker
 }
 

@@ -18,6 +18,6 @@ resource "aws_s3_bucket" "secrets_bucket" {
 
 resource "aws_s3_bucket_object" "secrets" {
   bucket  = aws_s3_bucket.secrets_bucket.bucket
-  key     = "secrets"
-  content = "test"
+  key     = "secrets.json"
+  content = jsonencode(var.secrets)
 }

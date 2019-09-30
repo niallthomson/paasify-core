@@ -44,6 +44,11 @@ variable "om_password" {
   default = ""
 }
 
+variable "secrets" {
+  type = map(string)
+  default {}
+}
+
 variable "blocker" {
   description = "Used to link to a blocker resource"
   default = ""
