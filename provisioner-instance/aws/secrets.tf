@@ -1,5 +1,11 @@
+resource "random_string" "secret_bucket_suffix" {
+  length  = 4
+  special = false
+  upper   = false
+}
+
 resource "aws_kms_key" "secrets_bucket_key" {
-  description             = "paasify-${var.env_name}-secrets-bucket"
+  description             = "paasify-${var.env_name}-secrets-bucket-${random_string.secret_bucket_suffix.result}"
   deletion_window_in_days = 7
 }
 
