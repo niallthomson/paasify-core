@@ -6,7 +6,7 @@ resource "null_resource" "setup" {
 
   provisioner "file" {
     source      = "${path.module}/scripts/provision.sh"
-    destination = "/tmp/provision.sh"
+    destination = "/home/ubuntu/provision.sh"
   }
 
   provisioner "remote-exec" {
@@ -19,7 +19,7 @@ resource "null_resource" "setup" {
   }
 
   provisioner "remote-exec" {
-    inline = ["chmod +x /tmp/provision.sh && /tmp/provision.sh ${var.pivnet_token} ${var.om_host} ${var.om_username} ${local.om_password} ${aws_s3_bucket.secrets_bucket.bucket}"]
+    inline = ["chmod +x /home/ubuntu/provision.sh && /home/ubuntu/provision.sh ${var.pivnet_token} ${var.om_host} ${var.om_username} ${local.om_password} ${aws_s3_bucket.secrets_bucket.bucket}"]
   }
 
   connection {
