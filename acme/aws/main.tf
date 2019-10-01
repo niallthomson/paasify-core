@@ -18,6 +18,8 @@ resource "acme_certificate" "certificate" {
   common_name               = var.opsmanager_domain
   subject_alternative_names = var.additional_domains
 
+  recursive_nameservers     = [10.12.238.27]
+
   dns_challenge {
     provider = "route53"
 
