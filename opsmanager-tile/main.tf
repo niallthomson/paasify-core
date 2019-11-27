@@ -3,6 +3,9 @@ locals {
 }
 
 resource "null_resource" "stage_tile" {
+
+  count = var.skip ? 0 : 1
+
   triggers = {
     version  = var.tile_version
     config   = var.config

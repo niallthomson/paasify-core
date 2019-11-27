@@ -45,3 +45,8 @@ variable "provisioner_private_key" {
 variable "blocker" {
   default = ""
 }
+
+variable "skip" {
+  default = false
+  type    = bool
+}
