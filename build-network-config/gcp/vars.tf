@@ -1,5 +1,3 @@
-variable "vpc_cidr" {} 
-
 variable "subnet_name" {} 
 
 variable "network_name" {} 
