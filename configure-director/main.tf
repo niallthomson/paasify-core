@@ -15,7 +15,7 @@ resource "null_resource" "setup_director" {
   }
 
   provisioner "file" {
-    content     = "${length(var.vm_extensions) > 0 ? join("\n|\n", var.vm_extensions) : " "}"
+    content     = length(var.vm_extensions) > 0 ? join("\n|\n", var.vm_extensions) : " "
     destination = "~/vm_extensions.txt"
   }
 
@@ -32,21 +32,4 @@ resource "null_resource" "setup_director" {
     user        = var.provisioner_username
     private_key = var.provisioner_private_key
   }
-}
-
-resource "null_resource" "cleanup_opsman" {
-
-  provisioner "remote-exec" {
-    when = "destroy"
-
-    inline = ["wrap destroy_opsman"]
-  }
-
-  connection {
-    host        = var.provisioner_host
-    user        = var.provisioner_username
-    private_key = var.provisioner_private_key
-  }
-
-  depends_on = [ null_resource.setup_director ]
 }

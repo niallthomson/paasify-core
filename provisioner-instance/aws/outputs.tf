@@ -43,5 +43,5 @@ output "om_password" {
 }
 
 output "blocker" {
-  value = null_resource.setup.id
+  value = module.setup.blocker
 }

@@ -10,6 +10,10 @@ output "opsman_password" {
   value = module.provisioner.om_password
 }
 
+output "provisioner_public_ip" {
+  value = module.provisioner.public_ip
+}
+
 output "provisioner_host" {
   value = module.provisioner.dns
 }
