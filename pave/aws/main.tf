@@ -19,7 +19,7 @@ module "acme" {
 
   dns_zone_id        = module.infra.dns_zone_id
   opsmanager_domain  = module.infra.ops_manager_domain
-  additional_domains = []
+  additional_domains = var.additional_cert_domains
 }
 
 module "director_config" {

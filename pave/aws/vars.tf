@@ -48,3 +48,8 @@ variable "secrets" {
   type    = map(string)
   default = {}
 }
+
+variable "additional_cert_domains" {
+  type    = list(string)
+  default = []
+}

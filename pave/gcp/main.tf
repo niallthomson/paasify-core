@@ -21,7 +21,7 @@ module "acme" {
 
   project            = var.project
   opsmanager_domain  = module.infra.ops_manager_domain
-  additional_domains = []
+  additional_domains = var.additional_cert_domains
 
   blocker            = null_resource.infra_blocker.id
 }

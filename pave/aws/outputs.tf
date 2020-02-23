@@ -30,18 +30,47 @@ output "vpc_id" {
   value = module.infra.vpc_id
 }
 
+output "vpc_cidr" {
+  value = module.infra.vpc_cidr
+}
+
 output "availability_zones" {
   value = module.infra.availability_zones
+}
+
+output "az_configuration" {
+  value = module.director_config.az_configuration
+}
+
+output "cert_full_chain" {
+  value = module.acme.cert_full_chain
+}
+
+output "cert_key" {
+  value = module.acme.cert_key
+}
+
+output "cert_ca" {
+  value = module.acme.cert_ca
 }
 
 output "public_subnet_ids" {
   value = module.infra.public_subnet_ids
 }
 
+output "route_table_ids" {
+  value = module.infra.route_table_ids
+}
+
 output "bucket_suffix" {
   value = module.infra.bucket_suffix
 }
 
+output "base_domain" {
+  value = module.infra.base_domain
+}
+
+//==
 output "blocker" {
   value = module.configure_director.blocker
 }

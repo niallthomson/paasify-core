@@ -1,12 +1,12 @@
-output "opsman_host" {
-  value = module.provisioner.om_host
+output "ops_manager_domain" {
+  value = module.infra.ops_manager_domain
 }
 
-output "opsman_username" {
+output "ops_manager_username" {
   value = module.provisioner.om_username
 }
 
-output "opsman_password" {
+output "ops_manager_password" {
   value = module.provisioner.om_password
 }
 
@@ -20,6 +20,18 @@ output "provisioner_ssh_username" {
 
 output "provisioner_ssh_private_key" {
   value = module.provisioner.ssh_private_key
+}
+
+output "network_name" {
+  value = module.infra.network_name
+}
+
+output "vpc_cidr" {
+  value = module.infra.vpc_cidr
+}
+
+output "availability_zones" {
+  value = module.infra.availability_zones
 }
 
 output "az_configuration" {
@@ -38,6 +50,11 @@ output "cert_ca" {
   value = module.acme.cert_ca
 }
 
+output "base_domain" {
+  value = module.infra.base_domain
+}
+
+//==
 output "blocker" {
   value = module.configure_director.blocker
 }

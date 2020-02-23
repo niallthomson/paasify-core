@@ -22,6 +22,10 @@ output "vpc_cidr" {
   value = var.vpc_cidr
 }
 
+output "route_table_ids" {
+  value = aws_route_table.deployment[*].id
+}
+
 output "public_subnet_ids" {
   value = aws_subnet.public_subnet.*.id
 }
