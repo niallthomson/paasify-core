@@ -1,9 +1,3 @@
-provider "aws" {
-  region = var.region
-
-  version = "~> 2.50.0"
-}
-
 module "infra" {
   source = "../../infra/aws"
 
