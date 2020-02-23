@@ -13,7 +13,15 @@ resource "acme_registration" "reg" {
   email_address   = "none@paasify.org"
 }
 
+resource "null_resource" "acme_blocker" {
+  provisioner "local-exec" {
+    command = "echo ${var.blocker} && sleep 120"
+  }
+}
+
 resource "acme_certificate" "certificate" {
+  depends_on = [null_resource.acme_blocker]
+
   account_key_pem           = acme_registration.reg.account_key_pem
   common_name               = var.opsmanager_domain
   subject_alternative_names = var.additional_domains

@@ -10,3 +10,5 @@ variable "additional_domains" {
   type = list(string)
   default = []
 }
+
+variable "blocker" {}
