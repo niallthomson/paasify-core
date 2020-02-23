@@ -70,6 +70,10 @@ output "base_domain" {
   value = module.infra.base_domain
 }
 
+output "dns_zone_id" {
+  value = module.infra.dns_zone_id
+}
+
 //==
 output "blocker" {
   value = module.configure_director.blocker
