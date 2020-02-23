@@ -77,7 +77,7 @@ output "ops_manager_iam_user_secret_key" {
 }
 
 output "vms_security_group_id" {
-  value = aws_security_group.ops_manager.id
+  value = aws_security_group.platform.id
 }
 
 output "ops_manager_ssh_private_key" {
