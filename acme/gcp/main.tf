@@ -15,7 +15,7 @@ resource "acme_registration" "reg" {
 
 resource "null_resource" "acme_blocker" {
   provisioner "local-exec" {
-    command = "echo ${var.blocker} && sleep 120"
+    command = "echo ${var.blocker}"
   }
 }
 
