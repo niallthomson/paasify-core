@@ -14,6 +14,10 @@ output "ops_manager_iam_role_name" {
   value = module.infra.ops_manager_iam_role_name
 }
 
+output "ops_manager_iam_user_name" {
+  value = module.infra.ops_manager_iam_user_name
+}
+
 output "provisioner_public_ip" {
   value = module.provisioner.public_ip
 }

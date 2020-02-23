@@ -80,6 +80,10 @@ output "ops_manager_iam_user_secret_key" {
   sensitive = true
 }
 
+output "ops_manager_iam_user_name" {
+  value = aws_iam_user.ops_manager.name
+}
+
 output "ops_manager_iam_role_name" {
   value = aws_iam_role.ops_manager.name
 }
