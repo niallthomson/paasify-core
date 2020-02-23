@@ -20,16 +20,18 @@ resource "null_resource" "infra_blocker" {
   depends_on = [module.infra]
 }
 
-module "setup_director" {
-  source = "../../setup-director/aws"
+module "acme" {
+  source = "../../acme/aws"
 
-  env_name                    = module.infra.environment_name
-  provisioner_subnet_id       = module.infra.public_subnet_ids[0]
-  dns_zone_id                 = module.infra.dns_zone_id
-  pivnet_token                = var.pivnet_token
-  om_host                     = module.infra.ops_manager_domain
+  dns_zone_id        = module.infra.dns_zone_id
+  opsmanager_domain  = module.infra.ops_manager_domain
+  additional_domains = []
+}
 
-  azs                         = module.infra.availability_zones
+module "director_config" {
+  source = "../../build-director-config/aws"
+
+  azs                         = var.availability_zones
   iam_instance_profile        = module.infra.ops_manager_iam_instance_profile_name
   vpc_id                      = module.infra.vpc_id
   security_group              = module.infra.vms_security_group_id
@@ -44,6 +46,37 @@ module "setup_director" {
   management_subnet_ids       = module.infra.management_subnet_ids
   management_subnet_cidrs     = module.infra.management_subnet_cidrs
   management_subnet_azs       = module.infra.management_subnet_availability_zones
+}
 
-  blocker                     = null_resource.infra_blocker.id
+module "provisioner" {
+  source = "../../provisioner-instance/aws"
+
+  env_name    = var.environment_name
+  subnet_id   = module.infra.public_subnet_ids[0]
+  dns_zone_id = module.infra.dns_zone_id
+
+  pivnet_token = var.pivnet_token
+  om_host      = module.infra.ops_manager_domain
+
+  secrets      = var.secrets
+
+  blocker      = null_resource.infra_blocker.id
+}
+
+resource "null_resource" "provisioner_blocker" {
+  depends_on = [module.provisioner]
+}
+
+module "configure_director" {
+  source = "../../configure-director"
+
+  config           = module.director_config.config
+  ops_file         = "${module.director_config.ops_file}\n\n${var.director_ops_file}"
+  bosh_director_ip = module.director_config.bosh_director_ip
+
+  provisioner_host        = module.provisioner.dns
+  provisioner_username    = module.provisioner.ssh_username
+  provisioner_private_key = module.provisioner.ssh_private_key
+
+  blocker                 = null_resource.provisioner_blocker.id
 }

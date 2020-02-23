@@ -38,3 +38,13 @@ variable "pivnet_token" {
   description = "Your API token for Pivotal Network"
   type        = string
 }
+
+variable "director_ops_file" {
+  description = "Optional ops file yml for director tile"
+  default     = ""
+}
+
+variable "secrets" {
+  type    = map(string)
+  default = {}
+}
