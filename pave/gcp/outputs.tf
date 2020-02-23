@@ -1,4 +1,4 @@
-/*output "opsman_host" {
+output "opsman_host" {
   value = module.provisioner.om_host
 }
 
@@ -11,7 +11,7 @@ output "opsman_password" {
 }
 
 output "provisioner_host" {
-  value = module.provisioner.dns
+  value = module.provisioner.public_ip
 }
 
 output "provisioner_ssh_username" {
@@ -40,4 +40,4 @@ output "cert_ca" {
 
 output "blocker" {
   value = module.configure_director.blocker
-}*/
+}
