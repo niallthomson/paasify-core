@@ -70,6 +70,10 @@ output "route_table_ids" {
   value = module.infra.route_table_ids
 }
 
+output "vms_security_group_name" {
+  value = module.infra.vms_security_group_name
+}
+
 output "bucket_suffix" {
   value = module.infra.bucket_suffix
 }

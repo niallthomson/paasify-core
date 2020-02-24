@@ -88,6 +88,10 @@ output "vms_security_group_id" {
   value = aws_security_group.platform.id
 }
 
+output "vms_security_group_name" {
+  value = aws_security_group.platform.name
+}
+
 output "ops_manager_ssh_private_key" {
   value = tls_private_key.ops_manager.private_key_pem
 }
