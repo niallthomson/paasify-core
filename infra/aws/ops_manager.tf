@@ -107,6 +107,7 @@ data "aws_iam_policy_document" "ops_manager" {
         "ec2:DisassociateAddress",
         "ec2:DescribeAvailabilityZones",
         "ec2:DescribeImages",
+        "ec2:DeregisterImage",
         "ec2:DescribeInstances",
         "ec2:RunInstances",
         "ec2:RebootInstances",
