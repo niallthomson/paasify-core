@@ -39,7 +39,7 @@ resource "null_resource" "setup_director" {
 resource "null_resource" "cleanup_opsman" {
 
   provisioner "remote-exec" {
-    when = "destroy"
+    when = destroy
 
     inline = ["wrap destroy_opsman"]
   }
