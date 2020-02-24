@@ -23,6 +23,8 @@ resource "null_resource" "setup_director" {
     inline = ["wrap configure_opsman"]
   }
 
+  // Convert this in to a script on provisioner
+  // Or something that hooks in to apply-changes
   /*provisioner "remote-exec" {
     inline = ["wrap post_install_opsman ${var.bosh_director_ip}"]
   }*/
@@ -33,3 +35,20 @@ resource "null_resource" "setup_director" {
     private_key = var.provisioner_private_key
   }
 }
+
+resource "null_resource" "cleanup_opsman" {
+
+  provisioner "remote-exec" {
+    when = "destroy"
+
+    inline = ["wrap destroy_opsman"]
+  }
+
+  connection {
+    host        = var.provisioner_host
+    user        = var.provisioner_username
+    private_key = var.provisioner_private_key
+  }
+
+  depends_on = [ null_resource.setup_director ]
+} 
