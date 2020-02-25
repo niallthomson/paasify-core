@@ -29,7 +29,9 @@ variable "bosh_director_ip" {
   description = "The IP address of the BOSH director"
 }
 
-variable "blocker" {
+variable "blockers" {
   description = "Used to link to a blocker resource"
-  default = ""
+  default     = []
+
+  type        = list
 }

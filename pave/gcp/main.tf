@@ -72,5 +72,5 @@ module "configure_director" {
   provisioner_username    = module.provisioner.ssh_username
   provisioner_private_key = module.provisioner.ssh_private_key
 
-  blocker                 = null_resource.provisioner_blocker.id
+  blockers                 = concat(list(null_resource.provisioner_blocker.id), var.blockers)
 }

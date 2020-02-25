@@ -53,3 +53,10 @@ variable "additional_cert_domains" {
   type    = list(string)
   default = []
 }
+
+variable "blockers" {
+  description = "Used to link to a blocker resource"
+  default     = []
+
+  type        = list
+}

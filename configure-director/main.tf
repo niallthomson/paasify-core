@@ -1,7 +1,7 @@
 resource "null_resource" "setup_director" {
 
   provisioner "remote-exec" {
-    inline = ["echo ${var.blocker}"]
+    inline = ["echo ${sha256(join("", var.blockers))}"]
   }
     
   provisioner "file" {
