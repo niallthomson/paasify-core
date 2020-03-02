@@ -2,6 +2,18 @@ output "ops_manager_domain" {
   value = module.infra.ops_manager_domain
 }
 
+output "ops_manager_public_ip" {
+  value = module.infra.ops_manager_public_ip
+}
+
+output "ops_manager_ssh_username" {
+  value = "ubuntu"
+}
+
+output "ops_manager_ssh_private_key" {
+  value = module.infra.ops_manager_ssh_private_key
+}
+
 output "ops_manager_username" {
   value = module.provisioner.om_username
 }

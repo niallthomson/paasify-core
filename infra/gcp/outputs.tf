@@ -66,3 +66,7 @@ output "ops_manager_ssh_public_key" {
 output "ops_manager_domain" {
   value = local.om_domain
 }
+
+output "ops_manager_public_ip" {
+  value = google_compute_address.ops_manager.address
+}

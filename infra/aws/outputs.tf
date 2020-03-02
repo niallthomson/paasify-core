@@ -103,3 +103,7 @@ output "ops_manager_ssh_public_key_name" {
 output "ops_manager_domain" {
   value = local.om_domain
 }
+
+output "ops_manager_public_ip" {
+  value = aws_eip.ops_manager.public_ip
+}
