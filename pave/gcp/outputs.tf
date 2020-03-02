@@ -10,6 +10,14 @@ output "ops_manager_password" {
   value = module.provisioner.om_password
 }
 
+output "ops_manager_service_account_key" {
+  value = module.infra.ops_manager_service_account_key
+}
+
+output "ops_manager_service_account_email" {
+  value = module.infra.ops_manager_service_account_email
+}
+
 output "provisioner_host" {
   value = module.provisioner.public_ip
 }
