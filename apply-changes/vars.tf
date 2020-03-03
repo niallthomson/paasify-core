@@ -12,5 +12,5 @@ variable "provisioner_ssh_private_key" {
 
 variable "blocker" {
   description = "Used to link to a blocker resource"
-  default = ""
+  default     = ""
 }

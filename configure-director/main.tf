@@ -3,7 +3,7 @@ resource "null_resource" "setup_director" {
   provisioner "remote-exec" {
     inline = ["echo ${sha256(join("", var.blockers))}"]
   }
-    
+
   provisioner "file" {
     content     = var.config
     destination = "~/config/opsman-config.yml"
@@ -50,5 +50,5 @@ resource "null_resource" "cleanup_opsman" {
     private_key = var.provisioner_private_key
   }
 
-  depends_on = [ null_resource.setup_director ]
+  depends_on = [null_resource.setup_director]
 } 

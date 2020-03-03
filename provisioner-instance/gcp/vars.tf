@@ -44,12 +44,12 @@ variable "om_host" {
 
 variable "om_username" {
   description = "The username to authenticate with OpsManager API"
-  default = "admin"
+  default     = "admin"
 }
 
 variable "om_password" {
   description = "The password to authenticate with OpsManager API (randomly generated if not provided)"
-  default = ""
+  default     = ""
 }
 
 variable "secrets" {
@@ -59,5 +59,5 @@ variable "secrets" {
 
 variable "blocker" {
   description = "Used to link to a blocker resource"
-  default = ""
+  default     = ""
 }
