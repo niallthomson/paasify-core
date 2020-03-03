@@ -102,44 +102,44 @@ data "aws_iam_policy_document" "ops_manager" {
     effect = "Allow"
     actions = [
       "ec2:DescribeAccountAttributes",
-        "ec2:DescribeAddresses",
-        "ec2:AssociateAddress",
-        "ec2:DisassociateAddress",
-        "ec2:DescribeAvailabilityZones",
-        "ec2:DescribeImages",
-        "ec2:DeregisterImage",
-        "ec2:DescribeInstances",
-        "ec2:RunInstances",
-        "ec2:RebootInstances",
-        "ec2:TerminateInstances",
-        "ec2:DescribeKeypairs",
-        "ec2:DescribeRegions",
-        "ec2:DescribeSnapshots",
-        "ec2:CreateSnapshot",
-        "ec2:DeleteSnapshot",
-        "ec2:DescribeSecurityGroups",
-        "ec2:DescribeSubnets",
-        "ec2:DescribeVpcs",
-        "ec2:CreateTags",
-        "ec2:DescribeVolumes",
-        "ec2:CreateVolume",
-        "ec2:AttachVolume",
-        "ec2:DeleteVolume",
-        "ec2:DetachVolume",
-        "ec2:CopyImage",
-        "ec2:CopySnapshot",
-        "elasticloadbalancing:DescribeLoadBalancers",
-        "elasticloadbalancing:DescribeTargetGroups",
-        "elasticloadbalancing:DescribeTargetHealth",
-        "elasticloadbalancing:RegisterTargets"
+      "ec2:DescribeAddresses",
+      "ec2:AssociateAddress",
+      "ec2:DisassociateAddress",
+      "ec2:DescribeAvailabilityZones",
+      "ec2:DescribeImages",
+      "ec2:DeregisterImage",
+      "ec2:DescribeInstances",
+      "ec2:RunInstances",
+      "ec2:RebootInstances",
+      "ec2:TerminateInstances",
+      "ec2:DescribeKeypairs",
+      "ec2:DescribeRegions",
+      "ec2:DescribeSnapshots",
+      "ec2:CreateSnapshot",
+      "ec2:DeleteSnapshot",
+      "ec2:DescribeSecurityGroups",
+      "ec2:DescribeSubnets",
+      "ec2:DescribeVpcs",
+      "ec2:CreateTags",
+      "ec2:DescribeVolumes",
+      "ec2:CreateVolume",
+      "ec2:AttachVolume",
+      "ec2:DeleteVolume",
+      "ec2:DetachVolume",
+      "ec2:CopyImage",
+      "ec2:CopySnapshot",
+      "elasticloadbalancing:DescribeLoadBalancers",
+      "elasticloadbalancing:DescribeTargetGroups",
+      "elasticloadbalancing:DescribeTargetHealth",
+      "elasticloadbalancing:RegisterTargets"
     ]
     resources = ["*"]
   }
 }
 
 data "aws_ami" "ami" {
-  owners           = ["364390758643"]
-  most_recent      = true
+  owners      = ["364390758643"]
+  most_recent = true
 
   filter {
     name   = "name"
@@ -165,8 +165,8 @@ resource "aws_instance" "ops_manager" {
 }
 
 resource "aws_eip" "ops_manager" {
-  vpc       = true
-  instance  = aws_instance.ops_manager.id
+  vpc      = true
+  instance = aws_instance.ops_manager.id
 
   tags = merge(
     var.tags,

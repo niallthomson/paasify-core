@@ -1,6 +1,6 @@
 resource "null_resource" "script" {
   triggers = {
-    script   = var.script
+    script = var.script
   }
 
   provisioner "remote-exec" {

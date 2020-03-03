@@ -8,7 +8,7 @@ data "template_file" "subnets" {
     dns      = "${cidrhost(var.vpc_cidr, 2)}"
     cidr     = "${var.subnet_cidrs[count.index]}"
     gateway  = "${cidrhost(var.subnet_cidrs[count.index], 1)}"
-    reserved = "${cidrhost(var.subnet_cidrs[count.index], 0) }-${cidrhost(var.subnet_cidrs[count.index], 9) }"
+    reserved = "${cidrhost(var.subnet_cidrs[count.index], 0)}-${cidrhost(var.subnet_cidrs[count.index], 9)}"
     az       = "${var.subnet_azs[count.index]}"
   }
 }

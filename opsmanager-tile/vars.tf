@@ -8,7 +8,7 @@ variable "tile_version" {
 
 variable "glob" {
   description = "The glob of the file to download from Pivotal Network"
-  default = ".pivotal"
+  default     = ".pivotal"
 }
 
 variable "iaas" {

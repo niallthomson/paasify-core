@@ -1,8 +1,8 @@
 module "infra" {
   source = "../../infra/aws"
 
-  environment_name    = var.environment_name
-  region              = var.region
+  environment_name = var.environment_name
+  region           = var.region
 
   availability_zones  = var.availability_zones
   dns_suffix          = var.dns_suffix
@@ -25,21 +25,21 @@ module "acme" {
 module "director_config" {
   source = "../../build-director-config/aws"
 
-  azs                         = var.availability_zones
-  iam_instance_profile        = module.infra.ops_manager_iam_instance_profile_name
-  vpc_id                      = module.infra.vpc_id
-  security_group              = module.infra.vms_security_group_id
-  key_pair_name               = module.infra.ops_manager_ssh_public_key_name
-  ssh_private_key             = module.infra.ops_manager_ssh_private_key
-  region                      = var.region
-  bucket_name                 = module.infra.ops_manager_bucket
-  bucket_access_key_id        = module.infra.ops_manager_iam_user_access_key
-  bucket_secret_access_key    = module.infra.ops_manager_iam_user_secret_key
+  azs                      = var.availability_zones
+  iam_instance_profile     = module.infra.ops_manager_iam_instance_profile_name
+  vpc_id                   = module.infra.vpc_id
+  security_group           = module.infra.vms_security_group_id
+  key_pair_name            = module.infra.ops_manager_ssh_public_key_name
+  ssh_private_key          = module.infra.ops_manager_ssh_private_key
+  region                   = var.region
+  bucket_name              = module.infra.ops_manager_bucket
+  bucket_access_key_id     = module.infra.ops_manager_iam_user_access_key
+  bucket_secret_access_key = module.infra.ops_manager_iam_user_secret_key
 
-  vpc_cidr                    = module.infra.vpc_cidr
-  management_subnet_ids       = module.infra.management_subnet_ids
-  management_subnet_cidrs     = module.infra.management_subnet_cidrs
-  management_subnet_azs       = module.infra.management_subnet_availability_zones
+  vpc_cidr                = module.infra.vpc_cidr
+  management_subnet_ids   = module.infra.management_subnet_ids
+  management_subnet_cidrs = module.infra.management_subnet_cidrs
+  management_subnet_azs   = module.infra.management_subnet_availability_zones
 }
 
 module "provisioner" {
@@ -52,9 +52,9 @@ module "provisioner" {
   pivnet_token = var.pivnet_token
   om_host      = module.infra.ops_manager_domain
 
-  secrets      = var.secrets
+  secrets = var.secrets
 
-  blocker      = null_resource.infra_blocker.id
+  blocker = null_resource.infra_blocker.id
 }
 
 resource "null_resource" "provisioner_blocker" {
@@ -72,5 +72,5 @@ module "configure_director" {
   provisioner_username    = module.provisioner.ssh_username
   provisioner_private_key = module.provisioner.ssh_private_key
 
-  blockers                 = concat(list(null_resource.provisioner_blocker.id), var.blockers)
+  blockers = concat(list(null_resource.provisioner_blocker.id), var.blockers)
 }
