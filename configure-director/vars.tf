@@ -9,7 +9,7 @@ variable "ops_file" {
 
 // DELETE THIS
 variable "vm_extensions" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
@@ -33,5 +33,5 @@ variable "blockers" {
   description = "Used to link to a blocker resource"
   default     = []
 
-  type        = list
+  type = list
 }
