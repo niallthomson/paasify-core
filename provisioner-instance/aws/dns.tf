@@ -1,6 +1,6 @@
 resource "aws_route53_record" "provisioner" {
 
-  depends_on = [ aws_instance.provisioner ]
+  depends_on = [aws_instance.provisioner]
 
   name    = "provisioner"
   zone_id = var.dns_zone_id

@@ -36,11 +36,11 @@ variable "tags" {
 }
 
 variable "ops_manager_version" {
-  type    = string
+  type = string
 }
 
 variable "ops_manager_build" {
-  type    = string
+  type = string
 }
 
 variable "ops_manager_instance_type" {

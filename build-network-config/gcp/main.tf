@@ -6,7 +6,7 @@ data "template_file" "subnet" {
     dns      = "169.254.169.254"
     cidr     = var.subnet_cidr
     gateway  = var.subnet_gateway
-    reserved = "${cidrhost(var.subnet_cidr, 0) }-${cidrhost(var.subnet_cidr, 9)}"
+    reserved = "${cidrhost(var.subnet_cidr, 0)}-${cidrhost(var.subnet_cidr, 9)}"
     azs      = join(", ", var.subnet_azs)
   }
 }

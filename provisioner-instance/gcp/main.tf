@@ -35,7 +35,7 @@ resource "google_compute_instance" "provisioner" {
       nat_ip = google_compute_address.provisioner.address
     }
   }
-  
+
   metadata = {
     ssh-keys = "${local.username}:${tls_private_key.provisioner.public_key_openssh}"
   }

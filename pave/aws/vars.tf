@@ -22,11 +22,11 @@ variable "vpc_cidr" {
 }
 
 variable "ops_manager_version" {
-  type    = string
+  type = string
 }
 
 variable "ops_manager_build" {
-  type    = string
+  type = string
 }
 
 variable "ops_manager_instance_type" {
@@ -58,5 +58,5 @@ variable "blockers" {
   description = "Used to link to a blocker resource"
   default     = []
 
-  type        = list
+  type = list
 }

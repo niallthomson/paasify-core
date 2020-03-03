@@ -34,12 +34,12 @@ resource "aws_eip" "provisioner" {
 }
 
 resource "aws_instance" "provisioner" {
-  ami                         = local.ami_id
-  instance_type               = local.instance_type
-  key_name                    = aws_key_pair.provisioner.key_name
-  subnet_id                   = local.subnet_id
-  vpc_security_group_ids      = [aws_security_group.provisioner.id]
-  iam_instance_profile        = aws_iam_instance_profile.provisioner_profile.name
+  ami                    = local.ami_id
+  instance_type          = local.instance_type
+  key_name               = aws_key_pair.provisioner.key_name
+  subnet_id              = local.subnet_id
+  vpc_security_group_ids = [aws_security_group.provisioner.id]
+  iam_instance_profile   = aws_iam_instance_profile.provisioner_profile.name
 
   root_block_device {
     volume_size           = local.disk_size
@@ -51,6 +51,6 @@ resource "aws_instance" "provisioner" {
   }
 
   tags = {
-    Name    = "paasify-provisioner-${local.env_name}"
+    Name = "paasify-provisioner-${local.env_name}"
   }
 }
