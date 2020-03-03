@@ -35,20 +35,3 @@ resource "null_resource" "setup_director" {
     private_key = var.provisioner_private_key
   }
 }
-
-resource "null_resource" "cleanup_opsman" {
-
-  provisioner "remote-exec" {
-    when = destroy
-
-    inline = ["wrap destroy_opsman"]
-  }
-
-  connection {
-    host        = var.provisioner_host
-    user        = var.provisioner_username
-    private_key = var.provisioner_private_key
-  }
-
-  depends_on = [null_resource.setup_director]
-} 

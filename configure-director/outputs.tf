@@ -1,3 +1,3 @@
 output "blocker" {
-  value = null_resource.cleanup_opsman.id
+  value = null_resource.setup_director.id
 }

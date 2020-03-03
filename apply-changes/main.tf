@@ -7,6 +7,12 @@ resource "null_resource" "apply_changes" {
     inline = ["wrap apply_changes ${var.blocker}"]
   }
 
+  provisioner "remote-exec" {
+    when = destroy
+
+    inline = ["wrap destroy_opsman"]
+  }
+
   connection {
     host        = var.provisioner_host
     user        = var.provisioner_ssh_username
