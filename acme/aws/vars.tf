@@ -7,6 +7,6 @@ variable "opsmanager_domain" {
 }
 
 variable "additional_domains" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
