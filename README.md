@@ -1,5 +1,7 @@
 # paasify-core
 
+![](https://github.com/niallthomson/paasify-core/workflows/CI/badge.svg)
+
 `paasify` is a collection of projects that are intended to provide a simple and consistent way to install a set of products from Pivotal (now VMware) that rely on Pivotal OpsManager. This is presented as a set of Terraform modules that can be used to complete cookie-cutter installations end-to-end with `terraform apply`. The use-cases that this is intended for are to provision environments for sandboxes, proof-of-concepts and demos. This is absolutely not intended to provide production-grade installs.
 
 This repository contains Terraform modules that constitute the core of the various downstream `paasify` projects (PAS and PKS). They provide common functions such as building a paving the IaaS infrastructure, a provisioner jump box, generating director config and creating ACME certificates.
