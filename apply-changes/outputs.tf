@@ -1,3 +1,3 @@
 output "blocker" {
-  value = null_resource.apply_changes.id
+  value = var.auto_apply ? null_resource.apply_changes[0].id : "nil"
 }
