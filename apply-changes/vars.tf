@@ -10,6 +10,11 @@ variable "provisioner_ssh_private_key" {
   description = "The SSH private key of the paasify provisioner"
 }
 
+variable "auto_apply" {
+  default = true
+  type    = bool
+}
+
 variable "blocker" {
   description = "Used to link to a blocker resource"
   default     = ""

@@ -1,4 +1,6 @@
 resource "null_resource" "apply_changes" {
+  count = var.auto_apply ? 1 : 0
+
   triggers = {
     blocker = var.blocker
   }
