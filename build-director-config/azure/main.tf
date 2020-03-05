@@ -17,7 +17,7 @@ module "management_subnets" {
 
 locals {
   ssh_private_key_encoded = "${jsonencode(var.ssh_private_key)}"
-  ssh_public_key_encoded = "${jsonencode(var.ssh_public_key)}"
+  ssh_public_key_encoded  = "${jsonencode(var.ssh_public_key)}"
 }
 
 data "template_file" "director_configuration" {
@@ -35,7 +35,7 @@ data "template_file" "director_configuration" {
 
     resource_group_name       = var.resource_group_name
     bosh_storage_account_name = var.bosh_storage_account_name
-    ssh_public_key            = "${substr(local.ssh_public_key_encoded, 1, length(local.ssh_public_key_encoded)-2)}"
-    ssh_private_key           = "${substr(local.ssh_private_key_encoded, 1, length(local.ssh_private_key_encoded)-2)}"
+    ssh_public_key            = "${substr(local.ssh_public_key_encoded, 1, length(local.ssh_public_key_encoded) - 2)}"
+    ssh_private_key           = "${substr(local.ssh_private_key_encoded, 1, length(local.ssh_private_key_encoded) - 2)}"
   }
 }

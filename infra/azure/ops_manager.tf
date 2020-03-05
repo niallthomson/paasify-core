@@ -68,7 +68,7 @@ resource "tls_private_key" "ops_manager" {
 }
 
 resource "azurerm_storage_blob" "ops_manager_image" {
-  name                   = "opsman.vhd"
+  name = "opsman.vhd"
   //resource_group_name    = azurerm_resource_group.platform.name
   storage_account_name   = azurerm_storage_account.ops_manager.name
   storage_container_name = azurerm_storage_container.ops_manager.name
@@ -90,10 +90,10 @@ resource "azurerm_image" "ops_manager_image" {
 }
 
 resource "azurerm_network_interface" "ops_manager_nic" {
-  name                      = "${var.environment_name}-ops-manager-nic"
-  depends_on                = [azurerm_public_ip.ops_manager_public_ip]
-  location                  = var.region
-  resource_group_name       = azurerm_resource_group.platform.name
+  name                = "${var.environment_name}-ops-manager-nic"
+  depends_on          = [azurerm_public_ip.ops_manager_public_ip]
+  location            = var.region
+  resource_group_name = azurerm_resource_group.platform.name
 
   ip_configuration {
     name                          = "${var.environment_name}-ops-manager-ip-config"

@@ -9,11 +9,11 @@ resource random_string "provisioner" {
 }
 
 resource "azurerm_storage_account" "provisioner" {
-    name                        = random_string.provisioner.result
-    resource_group_name         = var.resource_group_name
-    location                    = var.region
-    account_replication_type    = "LRS"
-    account_tier                = "Standard"
+  name                     = random_string.provisioner.result
+  resource_group_name      = var.resource_group_name
+  location                 = var.region
+  account_replication_type = "LRS"
+  account_tier             = "Standard"
 }
 
 resource "azurerm_public_ip" "provisioner_public_ip" {
@@ -30,10 +30,10 @@ resource "azurerm_public_ip" "provisioner_public_ip" {
 }
 
 resource "azurerm_network_interface" "provisioner_nic" {
-  name                      = "${var.env_name}-provisioner-nic"
-  depends_on                = [azurerm_public_ip.provisioner_public_ip]
-  location                  = var.region
-  resource_group_name       = var.resource_group_name
+  name                = "${var.env_name}-provisioner-nic"
+  depends_on          = [azurerm_public_ip.provisioner_public_ip]
+  location            = var.region
+  resource_group_name = var.resource_group_name
 
   ip_configuration {
     name                          = "${var.env_name}-provisioner-ip-config"
