@@ -26,7 +26,7 @@ resource "null_resource" "apply_changes" {
   }
 
   provisioner "remote-exec" {
-    inline = ["wrap apply_changes ${null_resource.destroy.id}"]
+    inline = ["wrap apply_changes ${join("", null_resource.destroy.*.id)}"]
   }
 
   connection {
