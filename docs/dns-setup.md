@@ -8,6 +8,6 @@ Paasify makes some basic assumptions about DNS that allow it to function:
 
 For example, this is the structure of the domains used to test Paasify:
 
-![architecture](docs/dns-structure.png)
+![architecture](dns-structure.png)
 
 The DNS for `paasify.org` itself is managed in GoDaddy, with a sub-domain for each cloud delegated to that clouds DNS service.
