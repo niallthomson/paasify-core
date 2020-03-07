@@ -8,4 +8,8 @@ properties-configuration:
   director_configuration:
     ntp_servers_string: ${ntp}
     resurrector_enabled: true
-    
+resource-configuration:
+  compilation:
+    internet_connected: false
+  director:
+    internet_connected: false
