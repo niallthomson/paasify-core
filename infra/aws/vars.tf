@@ -47,6 +47,6 @@ variable "ops_manager_instance_type" {
 }
 
 variable "additional_iam_roles_arn" {
-  type    = "list"
+  type    = list
   default = []
 }
