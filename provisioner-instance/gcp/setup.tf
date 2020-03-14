@@ -12,5 +12,7 @@ module "setup" {
   om_username  = var.om_username
   om_password  = local.om_password
 
+  post_setup_script = var.post_setup_script
+
   blocker = var.blocker
 }

@@ -57,6 +57,11 @@ variable "secrets" {
   default = {}
 }
 
+variable "post_setup_script" {
+  description = "Script to run on the provisioner after the core setup script completes"
+  default     = "echo 'No post install script'"
+}
+
 variable "additional_cert_domains" {
   type    = list(string)
   default = []

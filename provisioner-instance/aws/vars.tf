@@ -49,6 +49,10 @@ variable "secrets" {
   default = {}
 }
 
+variable "post_setup_script" {
+  description = "Script to run on the provisioner after the core setup script completes"
+}
+
 variable "blocker" {
   description = "Used to link to a blocker resource"
   default     = ""

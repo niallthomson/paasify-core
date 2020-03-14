@@ -52,7 +52,8 @@ module "provisioner" {
   pivnet_token = var.pivnet_token
   om_host      = module.infra.ops_manager_domain
 
-  secrets = var.secrets
+  secrets           = var.secrets
+  post_setup_script = var.post_setup_script
 
   blocker = null_resource.infra_blocker.id
 }

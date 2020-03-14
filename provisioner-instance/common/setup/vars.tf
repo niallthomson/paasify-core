@@ -30,5 +30,9 @@ variable "om_password" {
   description = "The password to authenticate with OpsManager API"
 }
 
+variable "post_setup_script" {
+  description = "Script to run after the core setup script completes"
+}
+
 variable "blocker" {
 }

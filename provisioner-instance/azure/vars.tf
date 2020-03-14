@@ -57,6 +57,10 @@ variable "secrets" {
   default = {}
 }
 
+variable "post_setup_script" {
+  description = "Script to run on the provisioner after the core setup script completes"
+}
+
 variable "tags" {
   description = "Key/value tags to assign to all resources."
   default     = {}
