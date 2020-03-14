@@ -4,10 +4,11 @@ module "infra" {
   environment_name = var.environment_name
   region           = var.region
 
-  availability_zones  = var.availability_zones
-  dns_suffix          = var.dns_suffix
-  ops_manager_version = var.ops_manager_version
-  ops_manager_build   = var.ops_manager_build
+  availability_zones       = var.availability_zones
+  dns_suffix               = var.dns_suffix
+  ops_manager_version      = var.ops_manager_version
+  ops_manager_build        = var.ops_manager_build
+  additional_iam_roles_arn = var.additional_iam_roles_arn
 }
 
 resource "null_resource" "infra_blocker" {

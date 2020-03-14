@@ -79,12 +79,10 @@ data "aws_iam_policy_document" "ops_manager" {
   }
 
   statement {
-    sid     = "OpsMgrCreateInstanceWithCurrentInstanceProfile"
-    effect  = "Allow"
-    actions = ["iam:PassRole"]
-    resources = [
-      aws_iam_role.ops_manager.arn,
-    ]
+    sid       = "OpsMgrCreateInstanceWithCurrentInstanceProfile"
+    effect    = "Allow"
+    actions   = ["iam:PassRole"]
+    resources = concat([aws_iam_role.ops_manager.arn], var.additional_iam_roles_arn)
   }
 
   statement {

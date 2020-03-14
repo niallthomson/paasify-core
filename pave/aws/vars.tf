@@ -34,6 +34,11 @@ variable "ops_manager_instance_type" {
   type    = string
 }
 
+variable "additional_iam_roles_arn" {
+  type    = "list"
+  default = []
+}
+
 variable "pivnet_token" {
   description = "Your API token for Pivotal Network"
   type        = string

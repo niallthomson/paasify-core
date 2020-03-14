@@ -45,3 +45,8 @@ variable "ops_manager_instance_type" {
   default = "r4.large"
   type    = string
 }
+
+variable "additional_iam_roles_arn" {
+  type    = "list"
+  default = []
+}
