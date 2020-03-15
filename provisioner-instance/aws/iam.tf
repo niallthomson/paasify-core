@@ -33,16 +33,6 @@ resource "aws_iam_role_policy" "provisioner_policy" {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "ElasticRuntimeKMSPermissions1",
-      "Effect": "Allow",
-      "Action": [
-        "kms:Decrypt",
-        "kms:Encrypt",
-        "kms:DescribeKey"
-      ],
-      "Resource": "${aws_kms_key.secrets_bucket_key.arn}"
-    },
-    {
       "Sid": "ElasticRuntimeKMSPermissions2",
       "Effect": "Allow",
       "Action": "kms:GenerateDataKey",
