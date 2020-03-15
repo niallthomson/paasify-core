@@ -84,6 +84,7 @@ resource "aws_iam_role_policy" "provisioner_policy" {
         "elasticloadbalancing:DescribeTargetGroups",
         "elasticloadbalancing:DescribeTargetHealth",
         "elasticloadbalancing:RegisterTargets",
+        "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
         "elasticloadbalancing:SetIpAddressType",
         "elasticloadbalancing:SetSubnets"
       ],
