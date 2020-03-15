@@ -15,8 +15,17 @@ om_password=$4
 echo "Sleeping for a while..."
 sleep 40
 
+# Add the Cloud SDK distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+
 sudo apt -qq -y update
-sudo apt install -qq -y jq nano
+sudo apt install -qq -y jq nano awscli google-cloud-sdk
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 # Install pivnet CLI
 if [ ! -f /usr/bin/pivnet ]; then
