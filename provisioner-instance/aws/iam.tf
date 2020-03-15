@@ -103,3 +103,5 @@ resource "aws_iam_role_policy" "provisioner_policy" {
     }
   ]
 }
+EOF
+}
