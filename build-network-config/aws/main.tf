@@ -14,5 +14,5 @@ data "template_file" "subnets" {
 }
 
 locals {
-  subnet_config = [join(",", data.template_file.subnets.*.rendered)]
+  subnet_config = "[${join(",", data.template_file.subnets.*.rendered)}]"
 }
