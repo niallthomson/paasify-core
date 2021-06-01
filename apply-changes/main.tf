@@ -18,9 +18,9 @@ resource "null_resource" "destroy" {
   }
 
   connection {
-    host        = self.trigger.host
-    user        = self.trigger.user
-    private_key = self.trigger.private_key
+    host        = self.triggers.host
+    user        = self.triggers.user
+    private_key = self.triggers.private_key
   }
 }
 
