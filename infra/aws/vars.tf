@@ -13,7 +13,7 @@ variable "dns_suffix" {
 
 variable "availability_zones" {
   description = "The list of availability zones to use. Must belong to the provided region and equal the number of CIDRs provided for each subnet."
-  type        = list
+  type        = list(any)
 }
 
 variable "vpc_cidr" {
@@ -24,7 +24,7 @@ variable "vpc_cidr" {
 variable "ops_manager_allowed_ips" {
   description = "IPs allowed to communicate with Ops Manager."
   default     = ["0.0.0.0/0"]
-  type        = list
+  type        = list(any)
 }
 
 variable "tags" {
@@ -47,6 +47,14 @@ variable "ops_manager_instance_type" {
 }
 
 variable "additional_iam_roles_arn" {
-  type    = list
+  type    = list(any)
   default = []
+}
+
+variable "ssl_cert" {
+
+}
+
+variable "ssl_private_key" {
+  
 }

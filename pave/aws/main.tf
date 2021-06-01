@@ -9,6 +9,8 @@ module "infra" {
   ops_manager_version      = var.ops_manager_version
   ops_manager_build        = var.ops_manager_build
   additional_iam_roles_arn = var.additional_iam_roles_arn
+  ssl_cert                 = module.acme.cert_full_chain
+  ssl_private_key          = module.acme.cert_key
 }
 
 resource "null_resource" "infra_blocker" {
@@ -74,5 +76,5 @@ module "configure_director" {
   provisioner_username    = module.provisioner.ssh_username
   provisioner_private_key = module.provisioner.ssh_private_key
 
-  blockers = concat(list(null_resource.provisioner_blocker.id), var.blockers)
+  blockers = concat([null_resource.provisioner_blocker.id], var.blockers)
 }

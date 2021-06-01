@@ -13,7 +13,7 @@ variable "dns_suffix" {
 
 variable "availability_zones" {
   description = "The list of availability zones to use. Must belong to the provided region and equal the number of CIDRs provided for each subnet."
-  type        = list
+  type        = list(any)
 }
 
 variable "vpc_cidr" {
@@ -35,7 +35,7 @@ variable "ops_manager_instance_type" {
 }
 
 variable "additional_iam_roles_arn" {
-  type    = list
+  type    = list(any)
   default = []
 }
 
@@ -68,5 +68,5 @@ variable "blockers" {
   description = "Used to link to a blocker resource"
   default     = []
 
-  type = list
+  type = list(any)
 }

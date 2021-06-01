@@ -33,5 +33,5 @@ variable "blockers" {
   description = "Used to link to a blocker resource"
   default     = []
 
-  type = list
+  type = list(any)
 }

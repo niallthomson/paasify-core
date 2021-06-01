@@ -17,14 +17,14 @@ module "management_subnets" {
 }
 
 data "template_file" "director_configuration" {
-  template = "${chomp(file("${path.module}/templates/director_config_ops.yml"))}"
+  template = chomp(file("${path.module}/templates/director_config_ops.yml"))
 
   vars = {
     az_configuration = join(", ", formatlist("{name: %s}", var.azs))
 
-    management_subnets = "[${module.management_subnets.subnet_config}]"
+    management_subnets = [module.management_subnets.subnet_config]
 
-    project         = "${var.project}"
-    service_account = "${var.service_account_email}"
+    project         = var.project
+    service_account = var.service_account_email
   }
 }

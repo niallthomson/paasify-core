@@ -21,7 +21,7 @@ variable "dns_suffix" {
 
 variable "availability_zones" {
   description = "The list of availability zones to use. Must belong to the provided region and equal the number of CIDRs provided for each subnet."
-  type        = list
+  type        = list(any)
   default     = ["zone-1", "zone-2", "zone-3"]
 }
 
@@ -72,5 +72,5 @@ variable "blockers" {
   description = "Used to link to a blocker resource"
   default     = []
 
-  type = list
+  type = list(any)
 }

@@ -28,7 +28,7 @@ resource "azurerm_storage_container" "ops_manager" {
   container_access_type = "private"
 }
 
-resource random_string "bosh" {
+resource "random_string" "bosh" {
   length  = 20
   special = false
   upper   = false

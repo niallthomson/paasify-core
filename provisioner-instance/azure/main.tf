@@ -2,7 +2,7 @@ locals {
   username = "ubuntu"
 }
 
-resource random_string "provisioner" {
+resource "random_string" "provisioner" {
   length  = 20
   special = false
   upper   = false

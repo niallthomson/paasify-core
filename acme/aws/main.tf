@@ -1,7 +1,14 @@
+terraform {
+  required_providers {
+    acme = {
+      source  = "vancluever/acme"
+      version = "~> 2.4.0"
+    }
+  }
+}
+
 provider "acme" {
   server_url = "https://acme-v02.api.letsencrypt.org/directory"
-
-  version = "~> 1.4.0"
 }
 
 resource "tls_private_key" "private_key" {

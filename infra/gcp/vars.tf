@@ -21,7 +21,7 @@ variable "dns_suffix" {
 
 variable "availability_zones" {
   description = "Requires exactly THREE availability zones that must belong to the provided region."
-  type        = list
+  type        = list(any)
 }
 
 variable "vpc_cidr" {

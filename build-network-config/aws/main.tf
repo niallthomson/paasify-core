@@ -1,5 +1,5 @@
 data "template_file" "subnets" {
-  template = "${chomp(file("${path.module}/templates/subnet-config.yml"))}"
+  template = chomp(file("${path.module}/templates/subnet-config.yml"))
 
   count = length(var.subnet_azs)
 

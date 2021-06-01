@@ -19,7 +19,7 @@ variable "vpc_cidr" {
 variable "ops_manager_allowed_ips" {
   description = "IPs allowed to communicate with Ops Manager."
   default     = ["0.0.0.0/0"]
-  type        = list
+  type        = list(any)
 }
 
 variable "tags" {

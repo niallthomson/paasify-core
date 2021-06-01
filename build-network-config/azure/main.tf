@@ -1,5 +1,5 @@
 data "template_file" "subnet" {
-  template = "${chomp(file("${path.module}/templates/subnet-config.yml"))}"
+  template = chomp(file("${path.module}/templates/subnet-config.yml"))
 
   vars = {
     id       = "${var.network_name}/${var.subnet_name}"

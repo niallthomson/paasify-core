@@ -149,7 +149,7 @@ resource "aws_instance" "ops_manager" {
   ami                    = data.aws_ami.ami.id
   instance_type          = var.ops_manager_instance_type
   key_name               = aws_key_pair.ops_manager.key_name
-  vpc_security_group_ids = ["${aws_security_group.ops_manager.id}"]
+  vpc_security_group_ids = [aws_security_group.ops_manager.id]
   source_dest_check      = false
   subnet_id              = element(aws_subnet.public_subnet.*.id, 0)
   iam_instance_profile   = aws_iam_instance_profile.ops_manager.name
@@ -183,4 +183,13 @@ resource "aws_eip" "ops_manager" {
       "date",
     ]
   }
+}
+
+module "common" {
+  source = "../common"
+
+  ops_manager_domain = aws_eip.ops_manager.public_ip
+  ops_manager_ssh_private_key = tls_private_key.ops_manager.private_key_pem
+  ssl_cert = var.ssl_cert
+  ssl_private_key = var.ssl_private_key
 }
