@@ -23,19 +23,3 @@ terraform {
     }
   }
 }
-
-provider "null" {
-
-}
-
-provider "random" {
-
-}
-
-provider "tls" {
-
-}
-
-provider "template" {
-
-}
