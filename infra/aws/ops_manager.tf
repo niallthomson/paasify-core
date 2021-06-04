@@ -159,7 +159,7 @@ resource "aws_instance" "ops_manager" {
     volume_size = 150
   }
 
-  tags = merge(var.tags, map("Name", "${var.environment_name}-ops-manager"))
+  tags = merge(var.tags, tomap("Name", "${var.environment_name}-ops-manager"))
 }
 
 resource "aws_eip" "ops_manager" {
