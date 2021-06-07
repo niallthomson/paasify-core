@@ -69,7 +69,7 @@ if [ -z "$check_staged_payload" ]; then
 
     echo "Staging product version $om_version for $om_product in OM available products..."
 
-    om stage-product -p $om_product -v $om_version
+    flock $lock_file -c "om stage-product -p $om_product -v $om_version"
   else
     echo "Skipping staging $om_product"
   fi
